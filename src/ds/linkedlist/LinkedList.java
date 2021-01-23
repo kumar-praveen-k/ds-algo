@@ -48,14 +48,16 @@ public class LinkedList {
     }
 
     public int delete(int position) {
-        _size--;
-        if(_size <= 0) {
+        if (_size == 0) return 0;
+        if (_size == 1) {
             int value = head.data;
             head = null;
+            _size = 0;
             return value;
         }
 
-        if(position <= 1) {
+        _size--;
+        if (position <= 1) {
             int value = head.data;
             head = head.next;
             return value;
@@ -73,18 +75,26 @@ public class LinkedList {
 
         return value;
     }
-    public Node reverselist(){
-        if(_size <= 1) return head;
+
+    public void reverselist() {
+        if (_size <= 1) return;
         Node current = head;
         Node reverse = null;
-        while(current != null){
+        while (current != null) {
             head = current.next;
             current.next = reverse;
             reverse = current;
             current = head;
         }
         head = reverse;
-        return head;
+    }
+
+    public void push(int value) {
+        add(value, _size + 1);
+    }
+
+    public void prepend(int value) {
+        add(value, 1);
     }
 
     public String toString() {

@@ -49,33 +49,61 @@ public class LinkedListTest {
         assertEquals("3 -> 54 -> 41 -> 87 -> 4554 -> 3", list.toString());
 
         list.delete(-3);
-        assertEquals(5,list.getSize());
+        assertEquals(5, list.getSize());
         assertEquals("54 -> 41 -> 87 -> 4554 -> 3", list.toString());
 
         list.delete(4);
-        assertEquals(4,list.getSize());
+        assertEquals(4, list.getSize());
         assertEquals("54 -> 41 -> 87 -> 3", list.toString());
 
         list.delete(8);
-        assertEquals(3,list.getSize());
+        assertEquals(3, list.getSize());
         assertEquals("54 -> 41 -> 87", list.toString());
 
         list.delete(4);
-        assertEquals(2,list.getSize());
+        assertEquals(2, list.getSize());
         assertEquals("54 -> 41", list.toString());
 
         list.delete(0);
-        assertEquals(1,list.getSize());
+        assertEquals(1, list.getSize());
         assertEquals("41", list.toString());
 
         list.delete(50);
-        assertEquals(0,list.getSize());
+        assertEquals(0, list.getSize());
         assertEquals("", list.toString());
 
 
+        list.delete(50);
+        assertEquals(0, list.getSize());
+        assertEquals("", list.toString());
     }
+
     @Test
-    public void reverseString(){
+    public void addAtFirst() {
+        int[] myArray = new int[]{1, 5, 4};
+
+        LinkedList list = LinkedList.fromArray(myArray);
+        assertEquals("1 -> 5 -> 4", list.toString());
+
+        list.prepend(4);
+        assertEquals("4 -> 1 -> 5 -> 4", list.toString());
+
+    }
+
+    @Test
+    public void addAtLast() {
+        int[] myArray = new int[]{1, 5, 4};
+
+        LinkedList list = LinkedList.fromArray(myArray);
+        assertEquals("1 -> 5 -> 4", list.toString());
+
+        list.push(4);
+        assertEquals("1 -> 5 -> 4 -> 4", list.toString());
+
+    }
+
+    @Test
+    public void reverseList() {
         int[] myArray = new int[]{1, 3, 54, 41, 87, 4554, 3};
 
         LinkedList list = LinkedList.fromArray(myArray);
@@ -84,6 +112,7 @@ public class LinkedListTest {
         list.reverselist();
         assertEquals("3 -> 4554 -> 87 -> 41 -> 54 -> 3 -> 1", list.toString());
     }
+
     @Test
     public void shouldCreateLinkedListFromArray() {
         int[] myArray = new int[]{1, 3, 54, 2, 4, 6};
