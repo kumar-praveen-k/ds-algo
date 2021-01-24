@@ -1,6 +1,5 @@
 package algo.sort.Insertion;
 
-import algo.sort.quick.QuickSort;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
@@ -8,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 public class InsertionSortTest {
     @Test
     void passAll() {
-        QuickSort insertionSort = new QuickSort();
+        InsertionSort insertionSort = new InsertionSort();
 
         int[] arr1 = new int[]{1, 3, 2};
         int[] arr2 = new int[]{3, 1, 2};

@@ -38,6 +38,29 @@ public class LinkedListTest {
     }
 
     @Test
+    public void shouldGiveElementInIndexWhenIndexIsValid() {
+        int[] myArray = new int[]{1, 3, 54, 41, 87, 4554, 3};
+
+        LinkedList list = LinkedList.fromArray(myArray);
+
+        for (int i = 0; i < myArray.length; i++) {
+            assertEquals(myArray[i], list.elementAt(i + 1));
+        }
+    }
+
+    @Test
+    public void shouldThrowExceptionWhenIndexOutOfRange() {
+        int[] myArray = new int[]{1, 3, 54, 41, 87, 4554, 3};
+
+        LinkedList list = LinkedList.fromArray(myArray);
+
+        assertThrows(IndexOutOfBoundsException.class, () -> list.elementAt(0));
+        assertThrows(IndexOutOfBoundsException.class, () -> list.elementAt(-1));
+        assertThrows(IndexOutOfBoundsException.class, () -> list.elementAt(8));
+        assertThrows(IndexOutOfBoundsException.class, () -> list.elementAt(100));
+    }
+
+    @Test
     public void deleteNodesCorrectly() {
         int[] myArray = new int[]{1, 3, 54, 41, 87, 4554, 3};
 

@@ -97,6 +97,20 @@ public class LinkedList {
         add(value, 1);
     }
 
+    public int elementAt(int position) {
+        if (position <= 0 || position > getSize()) {
+            throw new IndexOutOfBoundsException("Index " + position + " is out of range from 1 to " + _size);
+        }
+
+        if (_size < 1) return -1;
+        Node current = head;
+        while (current.next != null && position > 1) {
+            current = current.next;
+            position--;
+        }
+        return current.data;
+    }
+
     public String toString() {
         if (head == null) return "";
 
